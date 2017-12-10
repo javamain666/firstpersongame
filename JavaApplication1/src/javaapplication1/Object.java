@@ -5,6 +5,8 @@
  */
 package javaapplication1;
 
+import java.awt.Graphics2D;
+
 /**
  *
  * @author Gamer
@@ -14,6 +16,9 @@ public class Object implements Paint{
     
     public Object()
     {
+        name="";
+        type=Type.NULL;
+        pos=new Position(0, 0);
         id=i++;
     }    
     private static int i=0;
@@ -30,11 +35,17 @@ public class Object implements Paint{
     }
     public void setPos(int _x,int _y)
     {
-        pos=new Position(_x,_y);
+        this.pos.x=_x;
+        this.pos.y=_y;
     }
-    public void Draw()
+    public void changePos(int _x, int _y)
     {
-        
+        this.pos.x+=_x;
+        this.pos.y+=_y;
+    }
+    public void Draw(Graphics2D g)
+    {
+        System.out.println("draw object");
     }
     public void setName(String n)
     {
@@ -44,7 +55,11 @@ public class Object implements Paint{
     {
         return name;
     }
+
+    
+    public enum Type{NULL, PLAYER, TREE, ENEMY};
+    public  Type type;
     private String name;
-    private Position pos;
+    public Position pos;
     private int id;
 }

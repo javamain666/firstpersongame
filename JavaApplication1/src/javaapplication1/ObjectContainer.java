@@ -30,5 +30,16 @@ public class ObjectContainer {
     {
         return objectArray;
     }
+    public List<Object> getObjectByType(Object.Type t)
+    {
+        List<Object> ol=new ArrayList<Object>();
+        for(Object o: this.objectArray)
+        {
+            if(o.type==t)
+                ol.add(o);
+        }
+        return ol;
+    }
+    
     private List<Object> objectArray;
 }

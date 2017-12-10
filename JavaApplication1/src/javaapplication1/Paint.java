@@ -5,10 +5,12 @@
  */
 package javaapplication1;
 
+import java.awt.Graphics2D;
+
 /**
  *
  * @author Gamer
  */
 public interface Paint {
-    public void Draw();
+    public void Draw(Graphics2D g);
 }

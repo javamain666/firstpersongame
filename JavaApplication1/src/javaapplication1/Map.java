@@ -5,6 +5,8 @@
  */
 package javaapplication1;
 
+import java.awt.Graphics2D;
+
 /**
  *
  * @author Gamer
@@ -21,7 +23,7 @@ public class Map extends Object implements Paint{
         return instance;
     }
     
-    public void Draw()
+    public void Draw(Graphics2D g)
     {
         System.out.println("map \n"+"size:"+maxx+" "+maxy);
     }
