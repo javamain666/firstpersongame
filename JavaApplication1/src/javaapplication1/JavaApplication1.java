@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author Gamer
  */
-public class JavaApplication1 extends JPanel implements KeyListener{
+public class JavaApplication1 extends JPanel  implements KeyListener{
 
     
     static final int WIDTH=800, HEIGHT=375;
@@ -47,6 +47,14 @@ public class JavaApplication1 extends JPanel implements KeyListener{
     
     public void keyPressed(KeyEvent e) {
         
+        
+    }
+ 
+    public void keyReleased(KeyEvent e) {     
+    }
+ 
+    public void keyTyped(KeyEvent e) {             
+    
         List<Object> ol=ObjectContainer.instance.getInstance().getObjectByType(Object.Type.PLAYER);
         System.out.println("presed char :"+e.getKeyChar());
         
@@ -86,12 +94,6 @@ public class JavaApplication1 extends JPanel implements KeyListener{
         
         this.repaint();
     }
- 
-    public void keyReleased(KeyEvent e) {     
-    }
- 
-    public void keyTyped(KeyEvent e) {             
-    }
     
     public void paint(Graphics g1) {
     Graphics2D g = (Graphics2D) g1;
@@ -127,7 +129,7 @@ public class JavaApplication1 extends JPanel implements KeyListener{
         Player p =new Player("alex",100, 200);
         container.getInstance().addObject(p);
         
-        for(int i=0; i<1; i++)
+        for(int i=0; i<100; i++)
         {
             Tree t=new Tree("tree"+i,(int) (Math.random() * Map.instance.maxx),(int) (Math.random() * Map.instance.maxy) );
             container.getInstance().addObject(t);
@@ -145,6 +147,14 @@ public class JavaApplication1 extends JPanel implements KeyListener{
         f.addKeyListener( ja);
         f.setSize(800,375);
         f.setVisible(true);
+        
+        
+        for(int i=0; i<100; i++)
+        {
+            Enemy enemy=new Enemy( (int) (Math.random() * Map.instance.maxx),(int) (Math.random() * Map.instance.maxy));
+            //Tree t=new Tree("tree"+i,(int) (Math.random() * Map.instance.maxx),(int) (Math.random() * Map.instance.maxy) );
+            container.getInstance().addObject(enemy);
+        }
         
         
         for(Object o : container.getInstance().getObjectList())

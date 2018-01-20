@@ -8,6 +8,7 @@ package javaapplication1;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+
 /**
  *
  * @author Gamer
@@ -17,6 +18,7 @@ public class Player extends Object {
     {
         super();
         this.type=Type.PLAYER;
+        this.compos=new Pair<Position,Position>(new Position(), new Position());
     }
     public Player(String n,int posx,int posy)
     {
@@ -24,13 +26,25 @@ public class Player extends Object {
         setName(n);
         this.setPos(posx, posy);
         this.type=Type.PLAYER;
+        this.compos=new Pair<Position,Position>(new Position(), new Position());
+        Position position=this.compos.getKey();
+        position = this.pos;
+        Position pos2=this.compos.getValue();
+        pos2.x=0; 
+        pos2.y=0;
     }
     @Override
     public void Draw(Graphics2D g)
     {
         
         g.setColor(Color.red);
-        g.fillRect(this.pos.x, this.pos.y, this.pos.x+20,  this.pos.y+20);
+        int xc=this.pos.x;
+        int yc=this.pos.y;
+        int metrix=20;
+        g.fillRect(xc, yc, metrix,  metrix);
+        System.out.println("fillRect:"+xc+" "+yc);
+        g.drawLine(compos.getKey().x, compos.getKey().y, compos.getValue().x-compos.getKey().x,  compos.getValue().y-compos.getKey().y);
+        System.out.println("compos "+compos.getKey().x + " " + compos.getKey().y +" "+compos.getValue().x + " " + compos.getValue().y);
         //g.drawLine(0+this.getPos().x, 0+getPos().y, 50+getPos().x, 0+getPos().y);
         //g.drawLine(0+this.getPos().x, 0+getPos().y, getPos().x, 50+getPos().y);
         //g.drawLine(0+this.getPos().x, 50+getPos().y, 50+getPos().x, 50+getPos().y);
@@ -39,6 +53,6 @@ public class Player extends Object {
 
     }
     
-    
+    public Pair<Position,Position> compos;
     public Features feature; // характеристики
 }

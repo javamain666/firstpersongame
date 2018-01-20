@@ -28,7 +28,7 @@ public class Tree extends Object{
     public void Draw(Graphics2D g)
     {
         g.setColor(Color.GREEN);
-        g.fillRect(this.getPos().x, this.getPos().y, this.getPos().x+20,  this.getPos().y+20);
+        g.fillRect(this.getPos().x, this.getPos().y, 20,  20);
         
         /*g.setColor(Color.WHITE);
         g.drawLine(0+this.getPos().x, 0+getPos().y, 50+getPos().x, 0+getPos().y);

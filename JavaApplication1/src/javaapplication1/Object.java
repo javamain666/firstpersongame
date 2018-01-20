@@ -29,28 +29,34 @@ public class Object implements Paint{
             
             return id;
     }
+    
     public Position getPos()
     {
         return new Position(pos.x,pos.y);
     }
+    
     public void setPos(int _x,int _y)
     {
         this.pos.x=_x;
         this.pos.y=_y;
     }
+    
     public void changePos(int _x, int _y)
     {
         this.pos.x+=_x;
         this.pos.y+=_y;
     }
+    
     public void Draw(Graphics2D g)
     {
         System.out.println("draw object");
     }
+    
     public void setName(String n)
     {
         name=n;
     }
+    
     public String getName()
     {
         return name;
